@@ -13,43 +13,5 @@ import { tap } from 'rxjs';
 })
 export class AppComponent {
 
-  // #firestore = inject(Firestore);
-
-  // tasks = signal<Task[]>([]);
-
-  // public ngOnInit(): void {
-
-  //   const q = query(collection(this.#firestore, 'tasks'));
-
-
-
-  //   onSnapshot(q, querySnapshot => {
-  //     querySnapshot.docs.map(doc => doc.data).forEach((doc) => doc && console.log(doc()))
-  //   });
-
-  // }
-
-  // public trackByTask(index: number, task: Task) {
-  //   return index;
-  // }
-
-  // public async addTask(name: string) {
-  //   try {
-  //     await addDoc(collection(this.#firestore, 'tasks'), { name, done: false });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
-
-  // public async deleteTask(id: string) {
-  //   await deleteDoc(doc(this.#firestore, 'tasks', id));
-  // }
-
-
 }
 
-interface Task {
-  id: string;
-  name: string;
-  done: boolean;
-}

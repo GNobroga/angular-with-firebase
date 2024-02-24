@@ -1,0 +1,49 @@
+<div class="container">
+  <span
+    style="
+      color: black;
+      font-size: 12px;
+      position: absolute;
+      top: 0;
+      right: 5%;
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    "
+    >
+    Bem-vindo {{ authService.currentUser?.displayName }}
+    <button (click)="authService.signOut()" style="outline: none; border: none; background-color: #eee; padding: 0.4rem; font-size: 11px; border-radius: 50%; cursor: pointer; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5)">Sair</button>
+    </span
+  >
+  <h1>todos</h1>
+  <div class="todos">
+    <input type="text" name="text" placeholder="O que precisa ser feito?" />
+    <ul class="content">
+      <li>
+        <input type="checkbox" name="isCompleted" />
+        <span>Name</span>
+      </li>
+      <li>
+        <input type="checkbox" name="isCompleted" />
+        <span>Name</span>
+      </li>
+      <li>
+        <input type="checkbox" name="isCompleted" />
+        <span>Name</span>
+      </li>
+    </ul>
+    <div class="footer">
+      <span> 3 items</span>
+      <span class="filters">
+        <ul>
+          <li class="active">Todas</li>
+          <li>Ativas</li>
+          <li>Completadas</li>
+        </ul>
+      </span>
+    </div>
+    <div class="sheet"></div>
+    <div class="sheet" style="top: 0.6rem; z-index: -2; width: 98%"></div>
+  </div>
+</div>

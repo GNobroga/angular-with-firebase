@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { LoginFormComponent } from './pages/login-form/login-form.component';
-import { PrivateComponent } from './pages/private/private.component';
 import { authGuard } from './guards/auth.guard';
+import { TodosComponent } from './pages/todos/todos.component';
 
 export const routes: Routes = [
   {
@@ -14,8 +14,8 @@ export const routes: Routes = [
     component: LoginFormComponent,
   },
   {
-    path: 'private',
-    component: PrivateComponent,
-    canActivate: [authGuard]
+    path: 'todos',
+    component: TodosComponent,
+    //canActivate: [authGuard]
   },
 ];

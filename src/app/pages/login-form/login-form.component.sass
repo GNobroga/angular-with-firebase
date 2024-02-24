@@ -1,3 +1,10 @@
+.container
+  display: flex
+  justify-content: center
+  align-items: center
+  background: linear-gradient(30deg, #060B1B, #162451)
+  height: 100%
+  padding: 1rem
 
 .wrapper
   background-color: #1C1917
@@ -20,6 +27,9 @@ form
     font-size: 3rem
     margin-bottom: 1.5rem
 
+    @media (max-width: 600px)
+      font-size: 2rem
+
   label
     display: inherit
     flex-direction: inherit
@@ -39,6 +49,10 @@ form
     font-size: 0.8rem
     text-align: end
     color: #AA7171
+    cursor: pointer
+
+    &:hover
+      text-decoration: underline
 
   button
     background: linear-gradient(to right, #627AF4, #4544AC)
@@ -68,9 +82,3 @@ form
       img
         width: 30px
 
-::ng-deep
-
-  body
-    display: flex
-    justify-content: center
-    align-items: center
