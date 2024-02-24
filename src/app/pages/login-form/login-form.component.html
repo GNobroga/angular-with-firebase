@@ -3,19 +3,19 @@
     <h1>Faça seu login.</h1>
     <label>
       Email
-      <input type="email" name="email" placeholder="email@email.com">
+      <input type="email" name="email" placeholder="email@email.com" #email>
     </label>
     <label>
       Password
-      <input type="password" name="password" placeholder="******">
+      <input type="password" name="password" placeholder="******" #password required minlength="6">
     </label>
     <span>
       Esqueci a senha
     </span>
-    <button>Entrar</button>
+    <button (click)="signIn(email.value, password.value)">Entrar</button>
     <a>Criar Conta</a>
     <ul>
-      <li>
+      <li (click)="signWithGoogle()">
         <img src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png" alt="Google">
       </li>
     </ul>

@@ -11,39 +11,39 @@ import { tap } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  #firestore = inject(Firestore);
+  // #firestore = inject(Firestore);
 
-  tasks = signal<Task[]>([]);
+  // tasks = signal<Task[]>([]);
 
-  public ngOnInit(): void {
+  // public ngOnInit(): void {
 
-    const q = query(collection(this.#firestore, 'tasks'));
+  //   const q = query(collection(this.#firestore, 'tasks'));
 
 
 
-    onSnapshot(q, querySnapshot => {
-      querySnapshot.docs.map(doc => doc.data).forEach((doc) => doc && console.log(doc()))
-    });
+  //   onSnapshot(q, querySnapshot => {
+  //     querySnapshot.docs.map(doc => doc.data).forEach((doc) => doc && console.log(doc()))
+  //   });
 
-  }
+  // }
 
-  public trackByTask(index: number, task: Task) {
-    return index;
-  }
+  // public trackByTask(index: number, task: Task) {
+  //   return index;
+  // }
 
-  public async addTask(name: string) {
-    try {
-      await addDoc(collection(this.#firestore, 'tasks'), { name, done: false });
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  // public async addTask(name: string) {
+  //   try {
+  //     await addDoc(collection(this.#firestore, 'tasks'), { name, done: false });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
 
-  public async deleteTask(id: string) {
-    await deleteDoc(doc(this.#firestore, 'tasks', id));
-  }
+  // public async deleteTask(id: string) {
+  //   await deleteDoc(doc(this.#firestore, 'tasks', id));
+  // }
 
 
 }
