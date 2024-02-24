@@ -25,7 +25,7 @@ export class TodosComponent implements OnInit {
   currentFilter = signal<'Todas' | 'Ativas' | 'Completadas'>('Todas');
 
   public ngOnInit() {
-    this.subscription = this.todosService.getTodos('Todas').subscribe(this.todos.set);
+    this.todosService.getTodos('Todas').subscribe(this.todos.set);
   }
 
   public changeFilter(filter: 'Todas' | 'Ativas' | 'Completadas') {
