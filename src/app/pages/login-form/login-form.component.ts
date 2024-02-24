@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { of } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,11 +15,17 @@ export class LoginFormComponent {
   router = inject(Router);
 
   public async signIn(email: string, password: string) {
+    if (email === '' || password === '') {
+      window.alert('E-mail e senha devem ser preenchidos');
+      return;
+    }
+
     const isSuccess = await this.authService.signWithEmailAndPassword(email, password);
     if (isSuccess) {
       this.router.navigate(['/todos']);
+    } else {
+      window.alert('E-mail ou senha inválidos');
     }
-
   }
 
   public async signWithGoogle() {
@@ -34,14 +39,10 @@ export class LoginFormComponent {
       const isSuccess = await this.authService.forgotPassword(email);
       if (isSuccess) {
         window.alert('Um email foi enviado para você');
-      } else {
-        window.alert('Um erro ocorreu, tente novamente mais tarde!');
+        return;
       }
-      return;
     }
-
-    window.alert('Insira um email');
-
+    window.alert('E-mail inválido');
   }
 
 }

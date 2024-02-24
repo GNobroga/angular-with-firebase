@@ -18,28 +18,27 @@
   >
   <h1>todos</h1>
   <div class="todos">
-    <input type="text" name="text" placeholder="O que precisa ser feito?" />
+    <input #text (keypress)="addTask($event)" type="text" name="text" placeholder="O que precisa ser feito?" />
     <ul class="content">
-      <li>
-        <input type="checkbox" name="isCompleted" />
-        <span>Name</span>
-      </li>
-      <li>
-        <input type="checkbox" name="isCompleted" />
-        <span>Name</span>
-      </li>
-      <li>
-        <input type="checkbox" name="isCompleted" />
-        <span>Name</span>
-      </li>
+      @for (todo of todos(); track todo.id) {
+        <li>
+          <div>
+            <input type="checkbox" name="isCompleted" [checked]="todo.isCompleted" #completedInput (change)="markTodo(todo.id, completedInput.checked)"/>
+            <span [class.checked]="completedInput.checked">{{ todo.text }}</span>
+          </div>
+          <button (click)="deleteTodo(todo.id)" style="position: absolute; right: 0; margin-right: 0.5rem; background-color: red; outline: none; border: none; cursor: pointer; color: white; padding: 0.2rem; border-radius: 0.8rem; font-size: 12px;">Deletar</button>
+        </li>
+      } @empty {
+        <p style="text-align: center; font-size: 0.8rem;">Não há nenhuma coisa a fazer</p>
+      }
     </ul>
     <div class="footer">
-      <span> 3 items</span>
+      <span> {{ todos().length }} items</span>
       <span class="filters">
         <ul>
-          <li class="active">Todas</li>
-          <li>Ativas</li>
-          <li>Completadas</li>
+          <li class="active" [class.active]="currentFilter() === 'Todas'" (click)="changeFilter('Todas')">Todas</li>
+          <li [class.active]="currentFilter() === 'Ativas'" (click)="changeFilter('Ativas')">Ativas</li>
+          <li [class.active]="currentFilter() === 'Completadas'" (click)="changeFilter('Completadas')">Completadas</li>
         </ul>
       </span>
     </div>

@@ -69,15 +69,22 @@
         top: 1px
         font-size: 1rem
 
+        &.checked
+          text-decoration: line-through
+
       input[type=checkbox]
-        width: 30px
-        height: 30px
+        width: 20px
+        height: 20px
         border-radius: 50%
         -webkit-appearance: none
         border: 1px solid rgba(0, 0, 0, 0.4)
+        transition: all 0.2s ease-in-out
+        cursor: pointer
+        background-color: orange
 
         &:checked
-          background-color: #ddd
+          background-color: green
+     
 
 
 
